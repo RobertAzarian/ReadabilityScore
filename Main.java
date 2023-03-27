@@ -6,8 +6,14 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String str = scanner.nextLine();
-        int symb = str.length();
+        int countOfSentences;
+        int countOfWords = 0;
 
-        System.out.println(symb > 100 ? "HARD" : "EASY");
+        String[] strArr = str.split("[.!?]");
+        countOfSentences = strArr.length;
+        for (String s : strArr) {
+            countOfWords += s.split(" ").length;
+        }
+        System.out.println(countOfWords / countOfSentences > 10 ? "HARD" : "EASY");
     }
 }
